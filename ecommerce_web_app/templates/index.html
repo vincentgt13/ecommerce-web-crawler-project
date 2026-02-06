@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>E-commerce Dashboard</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; }
+        th { background-color: #f2f2f2; }
+        input, select { padding: 6px; margin: 5px; }
+        button { padding: 6px 10px; }
+    </style>
+</head>
+<body>
+
+<h2>E-commerce Data Dashboard</h2>
+
+<form method="get">
+    <input type="text" name="search" placeholder="Search product name">
+    
+    <select name="platform">
+        {% for p in platforms %}
+            <option value="{{p}}">{{p}}</option>
+        {% endfor %}
+    </select>
+
+    <button type="submit">Search</button>
+</form>
+
+<table>
+    <tr>
+        <th>Platform</th>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Rating</th>
+        <th>Category</th>
+    </tr>
+
+    {% for row in tables %}
+    <tr>
+        <td>{{row.platform}}</td>
+        <td>{{row.product_name}}</td>
+        <td>{{row.price}}</td>
+        <td>{{row.rating}}</td>
+        <td>{{row.category}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
